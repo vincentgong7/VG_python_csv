@@ -1,7 +1,7 @@
 # VG_python_csv
 A python lib to read and write csv files.
 
-# ----------------------------------------------------------------------------
+# -----------------------------------------
 # Load data from file into list (of list)
 
 # load csv into list of list
@@ -18,7 +18,7 @@ data = load_csv_as_list_by_pandas(csv_file_path, is_header = False, delimiter=',
 # load csv into a dataframe in pandas
 df = load_csv_as_df_by_pandas(csv_file_path, delimiter=',')
 
-# ----------------------------------------------------------------------------
+# ----------------------------------------------
 # write the list of list to a csv. Note: only for 2 dimension list.
 # header should also be a list, rather than a string.
 # eg. header = header = ['h1','h2','h3']
