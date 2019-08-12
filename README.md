@@ -8,10 +8,12 @@ data = load_csv(csv_file_path, is_header = False, delimiter=',')
 
 #### 2. only for python 3.
 data = load_csv_v2(csv_file_path, is_header = False, delimiter=',')
+
 data = myload_csv(csv_file_path, is_header = False, delimiter=',')
 
 #### 3. require pandas
 #import pandas as pd
+
 data = load_csv_as_list_by_pandas(csv_file_path, is_header = False, delimiter=',')
 
 #### 4. load csv into a dataframe in pandas
@@ -30,6 +32,7 @@ addlist_tocsv(output_file, list_of_list, header = None, quoting=csv.QUOTE_MINIMA
 
 #### 7. only write one item of list to the csv file
 additem_oflist_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL)
+
 additem_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL)
         
 #### 8. save list with header to a csv file using pandas. 
@@ -53,17 +56,21 @@ addline_tofile(output_file, str_line, header = None)
 #### Json files are 10 times larger than pickle files. Therefore, by default, we use pickle
 #import pickle
 dump_pik(filename, data)
+
 mydump(filename, data)
 
 #### Load the data dumped by pickle
 data = load_pik(filename)
+
 data = myload(filename)
 
 #### json based serialisation, readable
 #import json
 dump_json(filename, data)
+
 data = load_json(filename)
 
 
 Design with love.
+
 www.Gong.im
