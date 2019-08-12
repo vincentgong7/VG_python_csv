@@ -1,5 +1,5 @@
 # VG_python_csv
-## A wrapped python functions for reading, writing, dumping and loading data from/into (csv) files in the most elegant way.
+## A set of wrapped python functions for reading, writing, dumping and loading data from/into (csv) files in the most elegant way.
 
 ### Part 1. Load data from file into list (of list)
 
