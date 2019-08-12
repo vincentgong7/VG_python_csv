@@ -1,5 +1,6 @@
 # VG_python_csv
-## A python lib to read and write csv files.
+## A wrapped python functions for reading, writing, dumping and loading data from/into (csv) files in the most elegant way.
+
 ### Part 1. Load data from file into list (of list)
 
 #### 1. load csv into list of list
