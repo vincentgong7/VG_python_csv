@@ -1,12 +1,15 @@
 # import requests
 import json
+import getpass
+import urllib.request
 import csv
+import re
 import sys
-# import os
+import os
+import pandas as pd
 import numpy as np
 import pickle
 from random import randint
-import pandas as pd
 
 # ----------------------------------------------------------------------------
 # load csv into list of list
@@ -56,33 +59,33 @@ def load_csv_as_df_by_pandas(csv_file_path, delimiter=','):
 # header should also be a list, rather than a string.
 # eg. header = header = ['h1','h2','h3']
 # csv.QUOTE_ALL, csv.QUOTE_MINIMAL, csv.QUOTE_NONNUMERIC, csv.QUOTE_NONE
-def writelist_tocsv(output_file, list_of_list, header = None, mode = 'w', quoting=csv.QUOTE_MINIMAL):
+def writelist_tocsv(output_file, list_of_list, header = None, mode = 'w', quoting=csv.QUOTE_MINIMAL, delimiter=','):
     with open(output_file, mode = mode, newline="", encoding="utf-8") as f:
-        writer = csv.writer(f, delimiter=',', quoting=quoting)
+        writer = csv.writer(f, delimiter=delimiter, quoting=quoting)
         if(header != None):
             writer.writerow(header)
         writer.writerows(list_of_list)
 
 # add list of list to the csv file
-def addlist_tocsv(output_file, list_of_list, header = None, quoting=csv.QUOTE_MINIMAL):
-    writelist_tocsv(output_file, list_of_list, header = header, mode = 'a', quoting=quoting)
+def addlist_tocsv(output_file, list_of_list, header = None, quoting=csv.QUOTE_MINIMAL, delimiter=','):
+    writelist_tocsv(output_file, list_of_list, header = header, mode = 'a', quoting=quoting, delimiter = delimiter)
 
 # only write one item of list to the csv file
-def additem_oflist_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL):
+def additem_oflist_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL, delimiter=','):
     list_of_list = [item_of_list]
-    writelist_tocsv(output_file, list_of_list, header = header, mode = 'a', quoting=quoting)
+    writelist_tocsv(output_file, list_of_list, header = header, mode = 'a', quoting=quoting, delimiter = delimiter)
 
-def additem_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL):
-    additem_oflist_tocsv(output_file, item_of_list, header = header, quoting=quoting)
+def additem_tocsv(output_file, item_of_list, header = None, quoting=csv.QUOTE_MINIMAL, delimiter=','):
+    additem_oflist_tocsv(output_file, item_of_list, header = header, quoting=quoting, delimiter = delimiter)
         
 # save list with header to a csv file using pandas. For 1 or 2 dimension list
 # header should also be a list, rather than a string.
 # eg. header = header = ['h1','h2','h3']
 # csv.QUOTE_ALL, csv.QUOTE_MINIMAL, csv.QUOTE_NONNUMERIC, csv.QUOTE_NONE
 # import pandas as pd
-def writelist_tocsv_pd(csv_file, data_list, header = None,quoting=csv.QUOTE_MINIMAL):
+def writelist_tocsv_pd(csv_file, data_list, header = None,quoting=csv.QUOTE_MINIMAL, delimiter=','):
     df = pd.DataFrame(data_list, columns=header)
-    df.to_csv(csv_file, index=False, quoting=quoting)
+    df.to_csv(csv_file, index=False, quoting=quoting, sep = delimiter)
 
 # write multiple lines into a file, for 1-dimension list
 # by default clean the existed content and write new content
