@@ -33,7 +33,7 @@ def load_csv_v2(csv_file_path, is_header = False, delimiter=','):
     return records
 
 def myload_csv(csv_file_path, is_header = False, delimiter=','):
-    load_csv_v2(csv_file_path, is_header = is_header, delimiter=delimiter)
+    return load_csv_v2(csv_file_path, is_header = is_header, delimiter=delimiter)
 
 # require pandas
 # import pandas as pd
